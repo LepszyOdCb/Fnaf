@@ -72,7 +72,13 @@ def main():
     }
 
     black = (0, 0, 0)
+    gray = (50, 50, 50)
+    white = (255, 255, 255)
     green = (0, 128, 0)
+
+    battery_width = 100
+    battery_height = 200
+    battery_offset = 100
 
     running = True
     while running:
@@ -114,8 +120,10 @@ def main():
         fan_sound.play(-1)  
 
         screen.blit(vievs[viev], (0, 0))
-        pygame.draw.rect(screen, black, (50, 50, 100, 200), border_radius=10)
-
+        
+        pygame.draw.rect(screen, gray, (battery_offset, screen_height - battery_offset - battery_width, battery_width, battery_height), border_radius=10)
+        pygame.draw.rect(screen, white, (battery_offset + 5, screen_height - battery_offset - battery_width + 5, battery_width  - 10, battery_height - 10), border_radius=10)
+        
         if show_cam_select: 
                 screen.blit(cttvs[row][col], (0, 0))
 
