@@ -4,6 +4,7 @@ import sys
 def main():
     pygame.init()
     pygame.mixer.init()
+    pygame.font.init()
 
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     pygame.display.set_caption("Aplikacja pełnoekranowa")
@@ -79,6 +80,12 @@ def main():
     battery_width = 100
     battery_height = 200
     battery_offset = 100
+    battery = 100
+    battery_display = "Battery " + str(battery) + "%"
+
+    font = pygame.font.SysFont('Arial', 36)
+
+    battery_surface = font.render(battery_display, True, white)
 
     running = True
     while running:
@@ -121,9 +128,12 @@ def main():
 
         screen.blit(vievs[viev], (0, 0))
         
-        pygame.draw.rect(screen, gray, (battery_offset, screen_height - battery_offset - battery_width, battery_width, battery_height), border_radius=10)
-        pygame.draw.rect(screen, white, (battery_offset + 5, screen_height - battery_offset - battery_width + 5, battery_width  - 10, battery_height - 10), border_radius=10)
+        pygame.draw.rect(screen, gray, (battery_offset, screen_height - battery_offset - battery_height, battery_width, battery_height), border_radius=10)
+        for x in range (1, int(battery / 20) + 1):
+            pygame.draw.rect(screen, green, (battery_offset, screen_height - battery_offset - battery_height /5 -(battery_height / 5) * (x - 1) + 5, battery_width, battery_height / 5 - 10), border_radius=10)
         
+        screen.blit(battery_surface, (battery_offset + 100, screen_height - battery_offset - battery_height + battery_height / 2.5))
+
         if show_cam_select: 
                 screen.blit(cttvs[row][col], (0, 0))
 
