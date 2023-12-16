@@ -57,6 +57,23 @@ def main():
     row = 1
     col = 4
 
+    locations = {
+    'main_stage': [0, 0, 0],
+    'dining_room': [0, 0, 0],
+    'service_room': [0, 0, 0],
+    'foxy_hideout': [0, 0, 0],
+    'kitchen': [0, 0, 0],
+    'corridor_left': [0, 0, 0],
+    'corridor_right': [0, 0, 0],
+    'close_corridor_left': [0, 0, 0],
+    'close_corridor_right': [0, 0, 0],
+    'door_left': [0, 0, 0],
+    'door_right': [0, 0, 0]
+    }
+
+    black = (0, 0, 0)
+    green = (0, 128, 0)
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -97,6 +114,7 @@ def main():
         fan_sound.play(-1)  
 
         screen.blit(vievs[viev], (0, 0))
+        pygame.draw.rect(screen, black, (50, 50, 100, 200), border_radius=10)
 
         if show_cam_select: 
                 screen.blit(cttvs[row][col], (0, 0))
