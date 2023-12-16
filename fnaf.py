@@ -21,7 +21,7 @@ def main():
     
     cam_1 = pygame.image.load("cam_1.png")
     cam_2 = pygame.image.load("cam_2.png")
-    cam_3 = pygame.image.load("cam_3.png")
+    cam_3 = pygame.image.load("cam_3a.png")
     cam_4 = pygame.image.load("cam_4.png")
     cam_5 = pygame.image.load("cam_5.png")
     cam_6 = pygame.image.load("cam_6.png")
